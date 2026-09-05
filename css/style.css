@@ -17,6 +17,53 @@
 }
 
 
+```css
+/* =========================================================
+   GAME ENTRIES
+   ========================================================= */
+
+.game-entry {
+    padding: 70px 0;
+
+    border-top: 2px solid var(--border);
+}
+
+.game-entry:first-of-type {
+    border-top: none;
+}
+
+.game-entry + .game-entry {
+    margin-top: 30px;
+}
+
+
+/* Alternate the layout for every other game */
+
+.game-entry:nth-of-type(even) .game-info {
+    order: 2;
+}
+
+.game-entry:nth-of-type(even) .itch-widget {
+    order: 1;
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .game-entry:nth-of-type(even) .game-info {
+        order: initial;
+    }
+
+    .game-entry:nth-of-type(even) .itch-widget {
+        order: initial;
+    }
+
+}
+```
+
+
 /* =========================================================
    VARIABLES
    ========================================================= */
