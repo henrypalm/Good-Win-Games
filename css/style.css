@@ -1,13 +1,4 @@
-```css
-/* =========================================================
-   CHMOD 755 — WEBSITE STYLES
-   ========================================================= */
-
-
-/* =========================================================
-   FONT
-   ========================================================= */
-
+```css id="z8k2qa"
 @font-face {
     font-family: "ThaleahFat";
     src: url("../src/fonts/ThaleahFat.ttf") format("truetype");
@@ -17,58 +8,10 @@
 }
 
 
-```css
-/* =========================================================
-   GAME ENTRIES
-   ========================================================= */
-
-.game-entry {
-    padding: 70px 0;
-
-    border-top: 2px solid var(--border);
-}
-
-.game-entry:first-of-type {
-    border-top: none;
-}
-
-.game-entry + .game-entry {
-    margin-top: 30px;
-}
-
-
-/* Alternate the layout for every other game */
-
-.game-entry:nth-of-type(even) .game-info {
-    order: 2;
-}
-
-.game-entry:nth-of-type(even) .itch-widget {
-    order: 1;
-}
-
-
-/* Mobile */
-
-@media (max-width: 800px) {
-
-    .game-entry:nth-of-type(even) .game-info {
-        order: initial;
-    }
-
-    .game-entry:nth-of-type(even) .itch-widget {
-        order: initial;
-    }
-
-}
-```
-
-
-/* =========================================================
-   VARIABLES
-   ========================================================= */
+/* ==================== VARIABLES ==================== */
 
 :root {
+
     --background: #162319;
     --background-2: #243526;
 
@@ -86,179 +29,91 @@
 }
 
 
-/* =========================================================
-   RESET
-   ========================================================= */
+/* ==================== RESET ==================== */
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
+
 
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
-    background-color: var(--background);
+    background: var(--background);
     color: var(--text);
     font-family: var(--body-font);
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.7;
 }
 
+
 img {
-    max-width: 100%;
     display: block;
+    max-width: 100%;
 }
+
 
 a {
     color: var(--link);
     text-decoration: none;
 }
 
+
 a:hover {
     color: var(--header);
 }
 
 
-/* =========================================================
-   GENERAL
-   ========================================================= */
+/* ==================== CONTAINER ==================== */
 
 .container {
-    width: min(90%, var(--max-width));
+    width: min(100% - 40px, var(--max-width));
     margin: 0 auto;
 }
 
-section {
-    padding: 100px 0;
-}
 
-.section-heading {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 60px;
-}
-
-.section-eyebrow,
-.hero-eyebrow {
-    font-family: var(--pixel-font);
-    color: var(--link);
-    font-size: 1.4rem;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
-h1,
-h2,
-h3 {
-    font-family: var(--pixel-font);
-    color: var(--header);
-    font-weight: normal;
-    line-height: 1.1;
-}
-
-h1 {
-    font-size: clamp(4rem, 10vw, 8rem);
-}
-
-h2 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-}
-
-h3 {
-    font-size: 2.2rem;
-}
-
-p {
-    margin-bottom: 20px;
-}
-
-
-/* =========================================================
-   BUTTONS
-   ========================================================= */
-
-.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-width: 170px;
-    padding: 14px 24px;
-
-    background-color: var(--button);
-    color: var(--background);
-
-    border: 3px solid var(--button);
-
-    font-family: var(--pixel-font);
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.15s ease,
-        background-color 0.15s ease,
-        color 0.15s ease;
-}
-
-.button:hover {
-    background-color: var(--header);
-    border-color: var(--header);
-    color: var(--background);
-
-    transform: translateY(-3px);
-}
-
-.button:active {
-    transform: translateY(0);
-}
-
-.button-secondary {
-    background-color: transparent;
-    color: var(--button);
-}
-
-.button-secondary:hover {
-    background-color: var(--button);
-    color: var(--background);
-}
-
-
-/* =========================================================
-   HEADER
-   ========================================================= */
+/* ==================== HEADER ==================== */
 
 .site-header {
     position: sticky;
     top: 0;
     z-index: 1000;
 
-    background-color: var(--background);
-
+    background: var(--background);
     border-bottom: 2px solid var(--border);
 }
 
+
 .nav-container {
-    min-height: 75px;
+    min-height: 76px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+
 .site-logo {
+    color: var(--header);
+
     font-family: var(--pixel-font);
     font-size: 2rem;
-    color: var(--header);
+
+    letter-spacing: 1px;
 }
+
 
 .site-logo:hover {
     color: var(--button);
 }
+
+
+/* ==================== NAVIGATION ==================== */
 
 .main-nav {
     display: flex;
@@ -266,66 +121,70 @@ p {
     gap: 35px;
 }
 
-.main-nav a {
-    font-family: var(--pixel-font);
-    font-size: 1.4rem;
-    color: var(--text);
 
-    transition: color 0.15s ease;
+.main-nav a {
+    color: var(--header);
+
+    font-family: var(--pixel-font);
+    font-size: 1.3rem;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
 }
+
 
 .main-nav a:hover {
     color: var(--button);
+    transform: translateY(-2px);
 }
 
 
-/* =========================================================
-   MOBILE MENU
-   ========================================================= */
+/* ==================== MOBILE MENU ==================== */
 
 .menu-toggle {
     display: none;
 
     background: transparent;
-    border: none;
+    border: 0;
 
     color: var(--header);
 
-    font-size: 2rem;
-
+    font-size: 1.8rem;
     cursor: pointer;
 }
 
 
-/* =========================================================
-   HERO
-   ========================================================= */
+/* ==================== HERO ==================== */
 
 .hero {
-    min-height: 80vh;
+    position: relative;
+
+    min-height: 650px;
 
     display: flex;
     align-items: center;
-
-    text-align: center;
-
-    position: relative;
+    justify-content: center;
 
     overflow: hidden;
 
-    background-color: var(--background);
+    background:
+        linear-gradient(
+            rgba(22, 35, 25, 0.92),
+            rgba(22, 35, 25, 0.92)
+        );
 }
 
 
-/*
-    Subtle pixel-grid background.
-*/
+/* Pixel-style background grid */
 
 .hero::before {
     content: "";
 
     position: absolute;
     inset: 0;
+
+    opacity: 0.12;
 
     background-image:
         linear-gradient(
@@ -340,48 +199,249 @@ p {
 
     background-size: 32px 32px;
 
-    opacity: 0.08;
+    pointer-events: none;
+}
+
+
+/* ==================== HERO NINJAS ==================== */
+
+.hero-ninjas {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
 
     pointer-events: none;
 }
 
+
+.hero-ninja {
+    position: absolute;
+
+    max-width: none;
+
+    image-rendering: pixelated;
+
+    opacity: 0.9;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+.hero-ninja-left {
+    left: 5%;
+    bottom: 5%;
+
+    height: 300px;
+
+    transform: scaleX(-1);
+}
+
+
+.hero-ninja-right {
+    right: 5%;
+    bottom: 5%;
+
+    height: 300px;
+}
+
+
+/* ==================== HERO CONTENT ==================== */
+
 .hero-content {
     position: relative;
-    z-index: 1;
+
+    z-index: 2;
+
+    text-align: center;
+
+    max-width: 800px;
+
+    padding: 80px 0;
 }
+
+
+.hero-eyebrow,
+.section-eyebrow {
+    color: var(--link);
+
+    font-family: var(--pixel-font);
+
+    font-size: 1.15rem;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
 
 .hero h1 {
-    margin-bottom: 25px;
+    margin: 15px 0 20px;
+
+    color: var(--header);
+
+    font-family: var(--pixel-font);
+
+    font-size: clamp(4rem, 10vw, 8rem);
+
+    line-height: 0.9;
+
+    letter-spacing: 3px;
 
     text-shadow:
-        5px 5px 0 var(--background-2);
+        4px 4px 0 var(--border);
 }
 
+
 .hero-tagline {
-    max-width: 700px;
+    max-width: 650px;
 
     margin: 0 auto 35px;
 
     color: var(--text);
 
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
+
+
+/* ==================== BUTTONS ==================== */
+
+.hero-buttons,
+.game-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
 
 .hero-buttons {
-    display: flex;
     justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
 }
 
 
-/* =========================================================
-   FEATURED GAME
-   ========================================================= */
+.button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 10px 24px;
+
+    background: var(--button);
+
+    border: 2px solid var(--button);
+
+    color: var(--background);
+
+    font-family: var(--pixel-font);
+
+    font-size: 1.15rem;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.button:hover {
+    background: var(--header);
+
+    border-color: var(--header);
+
+    color: var(--background);
+
+    transform: translateY(-2px);
+}
+
+
+.button-secondary {
+    background: transparent;
+
+    color: var(--button);
+
+    border-color: var(--button);
+}
+
+
+.button-secondary:hover {
+    background: var(--button);
+
+    color: var(--background);
+}
+
+
+/* ==================== GAMES ==================== */
 
 .featured-game {
-    background-color: var(--background-2);
+    padding: 100px 0;
+
+    background: var(--background-2);
 }
+
+
+.section-heading {
+    max-width: 800px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+}
+
+
+.section-heading h2 {
+    margin: 10px 0 15px;
+
+    color: var(--header);
+
+    font-family: var(--pixel-font);
+
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+
+    line-height: 1;
+
+    letter-spacing: 2px;
+}
+
+
+.section-heading > p:last-child {
+    font-size: 1.05rem;
+}
+
+
+/* ==================== INDIVIDUAL GAMES ==================== */
+
+.game-entry {
+    padding: 70px 0;
+
+    border-top: 2px solid var(--border);
+}
+
+
+.game-entry:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+
+.game-entry + .game-entry {
+    margin-top: 20px;
+}
+
+
+/* ==================== GAME LAYOUT ==================== */
 
 .game-layout {
     display: grid;
@@ -395,63 +455,75 @@ p {
     align-items: center;
 }
 
-.game-info h3 {
-    margin-bottom: 25px;
+
+.game-info h3,
+.itch-widget h3 {
+    margin: 10px 0 20px;
+
+    color: var(--header);
+
+    font-family: var(--pixel-font);
+
+    font-size: 2.4rem;
+
+    line-height: 1;
 }
+
 
 .game-info p {
-    max-width: 600px;
-}
-
-.game-actions {
-    display: flex;
-    gap: 15px;
-
-    margin-top: 30px;
-
-    flex-wrap: wrap;
+    margin-bottom: 18px;
 }
 
 
-/* =========================================================
-   ITCH.IO
-   ========================================================= */
+.game-info .section-eyebrow {
+    margin-bottom: 5px;
+}
+
+
+/* ==================== ITCH ==================== */
 
 .itch-widget {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
     width: 100%;
 }
 
+
 .itch-widget h3 {
-    margin-bottom: 25px;
     text-align: center;
 }
+
 
 .itch-frame {
     width: 100%;
 
-    display: flex;
-    justify-content: center;
-
     overflow: hidden;
+
+    border: 2px solid var(--border);
+
+    background: var(--background);
 }
+
 
 .itch-frame iframe {
-    max-width: 100%;
-    border: none;
+    display: block;
+
+    width: 100%;
+
+    max-width: 560px;
+
+    margin: 0 auto;
+
+    border: 0;
 }
 
 
-/* =========================================================
-   ABOUT
-   ========================================================= */
+/* ==================== ABOUT ==================== */
 
 .about {
-    background-color: var(--background);
+    padding: 100px 0;
+
+    background: var(--background);
 }
+
 
 .about-content {
     max-width: 800px;
@@ -459,152 +531,116 @@ p {
     margin: 0 auto;
 
     text-align: center;
-
-    font-size: 1.15rem;
 }
 
 
-/* =========================================================
-   COMMUNITY
-   ========================================================= */
+.about-content p {
+    margin-bottom: 25px;
+
+    font-size: 1.05rem;
+}
+
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==================== COMMUNITY ==================== */
 
 .community {
-    background-color: var(--background-2);
+    padding: 110px 0;
 
-    text-align: center;
-}
-
-.community-content {
-    max-width: 750px;
-}
-
-.community-content p {
-    font-size: 1.15rem;
-}
-
-.discord-button {
-    margin-top: 15px;
-}
-
-
-/* =========================================================
-   FUTURE GAMES
-   ========================================================= */
-
-.future-games {
-    background-color: var(--background);
-}
-
-.game-placeholder {
-    min-height: 220px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 3px dashed var(--border);
-
-    color: var(--border);
-
-    font-family: var(--pixel-font);
-    font-size: 2.5rem;
-
-    text-align: center;
-}
-
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-.site-footer {
-    background-color: var(--background);
+    background: var(--background-2);
 
     border-top: 2px solid var(--border);
-
-    padding: 30px 0;
 }
+
+
+.community-content {
+    max-width: 800px;
+
+    text-align: center;
+}
+
+
+.community-content h2 {
+    margin: 10px 0 20px;
+
+    color: var(--header);
+
+    font-family: var(--pixel-font);
+
+    font-size: clamp(2.5rem, 6vw, 4rem);
+
+    line-height: 1;
+}
+
+
+.community-content p:not(.section-eyebrow) {
+    margin-bottom: 30px;
+}
+
+
+/* ==================== FOOTER ==================== */
+
+.site-footer {
+    padding: 30px 0;
+
+    background: var(--background);
+
+    border-top: 2px solid var(--border);
+}
+
 
 .footer-content {
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 
     gap: 20px;
 }
 
-.footer-content p {
-    margin: 0;
-}
 
 .footer-links {
     display: flex;
-    gap: 25px;
 
-    font-family: var(--pixel-font);
-    font-size: 1.2rem;
+    gap: 25px;
 }
 
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
+.footer-links a {
+    font-family: var(--pixel-font);
 
-@media (max-width: 800px) {
+    font-size: 1.1rem;
+}
 
-    section {
-        padding: 75px 0;
+
+.footer-links a:hover {
+    color: var(--header);
+}
+
+
+/* ==================== TABLET ==================== */
+
+@media (max-width: 900px) {
+
+    .hero-ninja-left {
+        left: -40px;
+        height: 220px;
+
+        opacity: 0.45;
     }
 
 
-    /* Mobile navigation */
+    .hero-ninja-right {
+        right: -40px;
+        height: 220px;
 
-    .menu-toggle {
-        display: block;
+        opacity: 0.45;
     }
 
-    .main-nav {
-        position: absolute;
-
-        top: 75px;
-        left: 0;
-
-        width: 100%;
-
-        display: none;
-
-        flex-direction: column;
-
-        gap: 0;
-
-        padding: 15px 0;
-
-        background-color: var(--background-2);
-
-        border-bottom: 2px solid var(--border);
-    }
-
-    .main-nav.active {
-        display: flex;
-    }
-
-    .main-nav a {
-        width: 100%;
-
-        text-align: center;
-
-        padding: 15px;
-    }
-
-
-    /* Hero */
-
-    .hero {
-        min-height: 70vh;
-    }
-
-
-    /* Featured game */
 
     .game-layout {
         grid-template-columns: 1fr;
@@ -613,7 +649,161 @@ p {
     }
 
 
-    /* Footer */
+    .game-info {
+        max-width: 800px;
+
+        margin: 0 auto;
+    }
+
+
+    .itch-widget {
+        max-width: 800px;
+
+        margin: 0 auto;
+    }
+
+}
+
+
+/* ==================== MOBILE ==================== */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: min(100% - 30px, var(--max-width));
+    }
+
+
+    .nav-container {
+        min-height: 65px;
+    }
+
+
+    .menu-toggle {
+        display: block;
+    }
+
+
+    .main-nav {
+        display: none;
+
+        position: absolute;
+
+        top: 65px;
+        left: 0;
+        right: 0;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        padding: 15px 0;
+
+        background: var(--background);
+
+        border-bottom: 2px solid var(--border);
+    }
+
+
+    .main-nav.active {
+        display: flex;
+    }
+
+
+    .main-nav a {
+        width: 100%;
+
+        padding: 12px 20px;
+
+        text-align: center;
+    }
+
+
+    .hero {
+        min-height: 600px;
+    }
+
+
+    .hero-content {
+        padding: 60px 0;
+    }
+
+
+    .hero-ninja-left {
+        left: -80px;
+
+        height: 180px;
+
+        opacity: 0.25;
+    }
+
+
+    .hero-ninja-right {
+        right: -80px;
+
+        height: 180px;
+
+        opacity: 0.25;
+    }
+
+
+    .hero h1 {
+        font-size: clamp(3.5rem, 16vw, 5rem);
+    }
+
+
+    .hero-tagline {
+        font-size: 1rem;
+
+        padding: 0 15px;
+    }
+
+
+    .hero-buttons,
+    .game-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .hero-buttons .button,
+    .game-actions .button {
+        width: 100%;
+    }
+
+
+    .featured-game,
+    .about {
+        padding: 70px 0;
+    }
+
+
+    .community {
+        padding: 80px 0;
+    }
+
+
+    .section-heading {
+        margin-bottom: 40px;
+    }
+
+
+    .section-heading h2 {
+        font-size: clamp(2.3rem, 11vw, 3.5rem);
+    }
+
+
+    .game-entry {
+        padding: 50px 0;
+    }
+
+
+    .game-info h3,
+    .itch-widget h3 {
+        font-size: 2rem;
+    }
+
 
     .footer-content {
         flex-direction: column;
@@ -621,30 +811,9 @@ p {
         text-align: center;
     }
 
-}
 
-
-@media (max-width: 500px) {
-
-    .hero h1 {
-        font-size: 4rem;
-    }
-
-    .hero-tagline {
-        font-size: 1rem;
-    }
-
-    .button {
-        width: 100%;
-    }
-
-    .hero-buttons,
-    .game-actions {
-        flex-direction: column;
-    }
-
-    .game-actions .button {
-        width: 100%;
+    .footer-links {
+        justify-content: center;
     }
 
 }
